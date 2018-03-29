@@ -4,7 +4,7 @@
 # Author:  Sapphiress https://github.com/Sapphiress/ttlset
 # Email:   SapphiressOne@Gmail.com
 # Date:    28/03/2018
-# Version: 0.2
+# Version: 0.3
 
 
 
@@ -17,42 +17,38 @@ fi
 
 
 # Initialize variables
-ttl=0           # TTL          - The number in which the TTL will be set to.
 curttl=0        # Current TTL  - Just initializing the variable just to keep all the bases covered.
-nan='^[0-9]+$'  # Not a Number - A collection of shit to check if argument is a number.
+nan='^[0-9]'    # Not a Number - A collection of shit to check if argument is a number.
 
 
-# Set up $tll
+# Set up $ttl
 if [[ $1 == "" ]]; then
-    echo "You did not specify a specific TTL, setting to 46"
-    ttl=46
+    echo "You did not specify a TTL."
+    exit 1
 elif [[ $1 == "help"  ]]; then
     echo "Syntax: ttlset [option/ttl]"
-    echo ""
+    echo
     echo "Options: "
-    echo ""
+    echo
     echo "help          Displays this text."
     echo "ttl           The number you wish to set your ttl to."
-    echo ""
-    echo "You may type ttlset by itself.  However, by default it will be set to 46"
-    echo ""
+    echo
     echo "Examples: "
-    echo ""
+    echo
     echo "ttlset 65 or ttlset help"
-    echo ""
+    echo
     exit 0
 elif ! [[ $1 =~ $nan  ]]; then
     echo "What are you doing? YOU MONSTER! That wasn't a number! Your TTL must be a number."
-    exit 2
+    exit 1
 else
     echo "You specified a ttl of $1."
-    ttl=$1
 fi
 
 
 # Set the TTL while letting the user know what is going on.
 echo "Attempting to set the TTL..."
-sysctl net.ipv4.ip_default_ttl=$ttl > /dev/null   # Don't remove > /dev/null this stops the output.
+sysctl net.ipv4.ip_default_ttl=$1 > /dev/null     # Don't remove > /dev/null this stops the output.
 
 echo "Checking..."
 curttl=$(cat /proc/sys/net/ipv4/ip_default_ttl)   # Reads the current ttl and stores it in $curttl.
@@ -60,12 +56,11 @@ curttl=$(cat /proc/sys/net/ipv4/ip_default_ttl)   # Reads the current ttl and st
 
 # Just to confirm that $curttl and $ttl are equal.
 
-# echo "The TTL is $curttl."                      # For debugging purposes.
-if [[ $ttl == $curttl ]]; then
+if [[ $1 == $curttl ]]; then
     echo "The TTL was set successfully!"
     exit 0
 else
     echo "The TTL did not set correctly. Try again!"
-    exit 666
+    exit 1
 fi
 

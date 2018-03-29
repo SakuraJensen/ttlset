@@ -14,6 +14,13 @@ v0.2
   as it's only needed for debugging purposes.
 - Comment formatting for my OCD :P
 
+v0.3
+- Removed $ from range of valid characters as it could be dangerous.
+- Fixed mispellings in comments.
+- Removed Default setting of 46 as it can be dangerous.
+- Removed TTL variable.
+- exit Optimizations
+
 To-Do:
     Add a bit of redundancy to prevent any error for occuring. Such as double checking vars.
     Make --help and -h viable options for bringin up help.
