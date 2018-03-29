@@ -6,9 +6,13 @@ Just a very  quick way of setting your ttl.  if your isp requires you to change 
 
 
 ### Installation:
-1.) Download ttlset.sh
-2.) Open terminal.
-3.) Enter the following commands:
-> sudo cp ~/Downloads/ttlset.sh /usr/sbin/ttlset
-> sudo chmod +x /usr/sbin/ttlset
-4.) That's it you're done.  Just type ttlset just like any other command and you're good to go!
+- Download ttlset.sh
+- Open terminal.
+- Enter the following commands:
+```
+sudo cp ~/Downloads/ttlset.sh /usr/sbin/ttlset
+```
+Then
+```sudo chmod +x /usr/sbin/ttlset
+```
+- That's it you're done.  Just type ttlset just like any other command and you're good to go!
