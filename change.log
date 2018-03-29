@@ -1,0 +1,21 @@
+TTLset Changelog
+
+v0.1
+- Initial build
+
+v0.2
+- Cleaned up code a bit
+- Make echos a bit better and more formatted.
+- Help is now more.... helpful.
+- $ttl now has an inital value of 0.
+- Removed spaces from blank lines, as they're uneeded.
+- Added Developer email to top of source.
+- Commented out echo saying that the ttl has been set to $ttl
+  as it's only needed for debugging purposes.
+- Comment formatting for my OCD :P
+
+To-Do:
+    Add a bit of redundancy to prevent any error for occuring. Such as double checking vars.
+    Make --help and -h viable options for bringin up help.
+    Optimizations.
+
