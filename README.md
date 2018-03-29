@@ -13,6 +13,7 @@ Just a very  quick way of setting your ttl.  if your isp requires you to change 
 sudo cp ~/Downloads/ttlset.sh /usr/sbin/ttlset
 ```
 Then
-```sudo chmod +x /usr/sbin/ttlset
+```
+sudo chmod +x /usr/sbin/ttlset
 ```
 - That's it you're done.  Just type ttlset just like any other command and you're good to go!
